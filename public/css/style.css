@@ -134,6 +134,27 @@ footer {
     background-color: #d2a679;
     animation-play-state: paused;
 }
+.button-keluarga {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 10px;
+    padding: 12px 20px;
+    background-color: #c68642;
+    border: none;
+    border-radius: 8px;
+    /* color: #3e2723; */
+    color: #ffff;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #3e2723;
+    margin-top: -30px !important;
+    outline: none;
+    text-decoration: none;
+}
+
+.button-keluarga:hover {
+    background-color: #d2a679;
+    animation-play-state: paused;
+}
 
 @keyframes pulse {
     0%,

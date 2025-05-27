@@ -11,8 +11,8 @@
         }
 
         /* .subtitle {
-                        font-family: "Berkshire Swash", serif !important;
-                    } */
+                                font-family: "Berkshire Swash", serif !important;
+                            } */
 
         @keyframes spin {
             0% {
@@ -60,12 +60,12 @@
                 ukhuwah. Kehadiran Bapak/Ibu/Saudara(i) sangat kami harapkan.
             </p>
 
-            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Isi Data Diri</button>
+            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Silahkan Isi Data Diri</button>
 
         </div>
 
         <div class="section" aria-label="Informasi tanggal dan waktu acara">
-            <h2>Tanggal &amp; Waktu</h2>
+            <h2>Waktu Pelaksanaan Acara</h2>
             <p id="event-date">Minggu, 08 Juni 2025</p>
             <p id="event-time">Pukul 07.00 - Selesai</p>
         </div>
@@ -111,8 +111,15 @@
         <!-- <button id="countdown" aria-label="Tampilkan hitung mundur"></button> -->
         <p id="countdown-display" aria-live="polite" style="margin-top: 15px; font-weight: 600"></p>
 
+        <a class="button-keluarga" href="{{ route('keluarga.index') }}" aria-label="Tampilkan hitung mundur">Lihat Data
+            Keluarga</a>
+
+
         <footer>
-            Kami tunggu kehadiran Anda dan Keluarga. TTD, Segenap Panitia Acara.
+            Terima kasih telah mendukung terselenggaranya acara ini.
+            Kami tunggu kehadiran sedulur semua.
+
+            <center>---PANITIA PELAKSANA---</center>
         </footer>
 
         <div id="modal-kehadiran" class="modal-overlay" style="display: none;">
@@ -139,6 +146,8 @@
                         <option value="Juwari">Bani Juwari</option>
                         <option value="Lainnya">Lainnya</option>
                     </select>
+                    <input type="text" name="bani_lainnya" id="input-bani-lainnya" placeholder="Tulis nama Bani"
+                        style="display: none;" />
                     <input type="text" name="alamat" placeholder="Alamat" required />
                     <input type="number" name="hp" placeholder="No HP" required />
                     <input type="text" name="pekerjaan" placeholder="Pekerjaan / Usaha" required />
@@ -155,6 +164,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
+        const selectBani = document.getElementById('turunan-select');
+        const inputBaniLainnya = document.getElementById('input-bani-lainnya');
+
+        selectBani.addEventListener('change', function() {
+            if (this.value === 'Lainnya') {
+                inputBaniLainnya.style.display = 'block';
+                inputBaniLainnya.setAttribute('required', 'required');
+            } else {
+                inputBaniLainnya.style.display = 'none';
+                inputBaniLainnya.removeAttribute('required');
+                inputBaniLainnya.value = ''; // reset nilai input
+            }
+        });
 
         const countdownDisplay = document.getElementById("countdown-display");
         const eventDate = new Date("June 08, 2025 07:00:00");

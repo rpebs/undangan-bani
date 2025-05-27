@@ -18,11 +18,19 @@ class HomeController extends Controller
             'nama' => 'required|string|max:255',
             'nama_orang_tua' => 'nullable|string|max:255',
             'bani' => 'required|string|max:255',
+            'bani_lainnya' => 'nullable|string|max:255', // Optional, tapi dibaca saat 'Lainnya'
             'alamat' => 'required|string|max:255',
             'hp' => 'required|string',
             'pekerjaan' => 'required|string|max:255',
-        // Validasi untuk turunan_bani
         ]);
+
+        // Ganti nilai 'bani' kalau user pilih "Lainnya"
+        $validated['bani'] = $validated['bani'] === 'Lainnya'
+            ? $validated['bani_lainnya']
+            : $validated['bani'];
+
+        // Hapus input bantuannya biar gak kesimpen ke kolom yang nggak ada
+        unset($validated['bani_lainnya']);
 
         // Simpan ke database
         Person::create($validated);
