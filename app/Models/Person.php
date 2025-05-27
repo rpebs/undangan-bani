@@ -14,6 +14,7 @@ class Person extends Model
         'alamat',
         'hp',
         'pekerjaan',
+        'turunan_bani', // Tambahkan kolom turunan_bani jika diperlukan
     ];
 
     // Tambahkan relasi atau metode lain jika diperlukan

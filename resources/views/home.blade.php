@@ -1,6 +1,19 @@
 @extends('layout.main')
 @section('customcss')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <style>
+        h1 {
+            font-family: "Berkshire Swash", serif !important;
+        }
+
+        /* .subtitle {
+                        font-family: "Berkshire Swash", serif !important;
+                    } */
+
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
@@ -47,7 +60,7 @@
                 ukhuwah. Kehadiran Bapak/Ibu/Saudara(i) sangat kami harapkan.
             </p>
 
-            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Isi Daftar Hadir</button>
+            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Isi Data Diri</button>
 
         </div>
 
@@ -109,11 +122,20 @@
                     aria-label="Form input kehadiran">
                     @csrf
                     <input type="text" name="nama" placeholder="Nama Lengkap" required />
-                    <input type="number" name="keturunan_ke" placeholder="Keturunan ke-" required />
-                    <select required name="bani">
+                    {{-- <input type="number" name="keturunan_ke" placeholder="Keturunan ke-" required /> --}}
+                    <select required name="bani" id="bani-select">
+                        <option value="">Nama Orang Tua</option>
+                        <option value="Sakirin">Sakirin</option>
+                        <option value="Sama'un">Sama'un</option>
+                    </select>
+                    <select required name="turunan_bani" id="turunan-select">
                         <option value="">Pilih Bani</option>
-                        <option value="Sakirin">Bani Sakirin</option>
-                        <option value="Sama'un">Bani Sama'un</option>
+                        <option value="Sarwati">Bani Sarwati</option>
+                        <option value="Kasnadi">Bani Kasnadi</option>
+                        <option value="Abdul Akhir">Bani Abdul Akhir</option>
+                        <option value="Abdul Kadir">Bani Abdul Kadir</option>
+                        <option value="Juwari">Bani Juwari</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
                     <input type="text" name="alamat" placeholder="Alamat" required />
                     <input type="number" name="hp" placeholder="No HP" required />
@@ -131,6 +153,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
+
         const countdownDisplay = document.getElementById("countdown-display");
         const eventDate = new Date("June 08, 2025 07:00:00");
 
@@ -159,6 +182,8 @@
             updateCountdown();
             timerInterval = setInterval(updateCountdown, 1000);
         }
+
+
         document.getElementById("input-kehadiran").addEventListener("click", function() {
             document.getElementById("modal-kehadiran").style.display = "flex";
         });

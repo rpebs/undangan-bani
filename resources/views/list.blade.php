@@ -116,7 +116,7 @@
                 @foreach ($dataKeluarga as $item)
                     <tr>
                         <td data-label="Nama">{{ $item->nama }}</td>
-                        <td data-label="Keturunan">{{ $item->keturunan_ke }}</td>
+                        <td data-label="Keturunan">{{ $item->turunan_bani }}</td>
                         <td data-label="Alamat">{{ $item->alamat }}</td>
                         <td data-label="HP">{{ $item->hp }}</td>
                         <td data-label="Aksi">

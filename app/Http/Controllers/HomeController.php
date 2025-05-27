@@ -16,11 +16,12 @@ class HomeController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'keturunan_ke' => 'required|string|max:255',
+            'keturunan_ke' => 'nullable|string|max:255',
             'bani' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
             'hp' => 'required|string',
             'pekerjaan' => 'required|string|max:255',
+            'turunan_bani' => 'nullable|string|max:255', // Validasi untuk turunan_bani
         ]);
 
         // Simpan ke database
@@ -35,7 +36,7 @@ class HomeController extends Controller
 
     public function tampilkanKeluarga()
     {
-        $data = Person::all()->groupBy('bani');
+        $data = Person::all()->groupBy('turunan_bani');
         return view('keluarga', ['kelompokBani' => $data]);
     }
 

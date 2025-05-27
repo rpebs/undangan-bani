@@ -69,12 +69,18 @@
         <p class="subtitle">Terdata berdasarkan Bani & Keturunan</p>
         @foreach ($kelompokBani as $bani => $anggota)
             <div class="section">
-                <h2>Bani {{ $bani }}</h2>
+                <h2>
+                    @if ($bani === 'Lainnya')
+                        {{ $bani }}
+                    @else
+                        Bani {{ $bani }}
+                    @endif
+                </h2>
                 <div class="card-grid">
-                    @foreach ($anggota->sortBy('keturunan_ke') as $person)
+                    @foreach ($anggota as $person)
                         <div class="card">
                             <h3>{{ $person->nama }}</h3>
-                            <p><strong>Keturunan ke-</strong> {{ $person->keturunan_ke }}</p>
+                            <p><strong>Nama Orang Tua-</strong> {{ $person->bani }}</p>
                             <p><strong>Alamat:</strong> {{ $person->alamat }}</p>
                             <p><strong>HP:</strong> {{ $person->hp }}</p>
                             <p><strong>Pekerjaan:</strong> {{ $person->pekerjaan }}</p>
