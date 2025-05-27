@@ -80,7 +80,7 @@
                     @foreach ($anggota as $person)
                         <div class="card">
                             <h3>{{ strtoupper($person->nama) }}</h3>
-                            <p><strong>Nama Orang Tua:</strong> {{ ucfirst($person->nama_orang_tua) }}</p>
+                            <p><strong>Nama Orang Tua:</strong> {{ ucwords($person->nama_orang_tua) }}</p>
                             <p><strong>Alamat:</strong> {{ $person->alamat }}</p>
                             <p><strong>HP:</strong> {{ $person->hp }}</p>
                             <p><strong>Pekerjaan:</strong> {{ $person->pekerjaan }}</p>
