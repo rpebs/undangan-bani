@@ -1,3 +1,5 @@
+@extends('layout.main')
+
 @section('customcss')
     <style>
         .container-delete {
@@ -22,13 +24,15 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px; /* Supaya tabel tetap proper di layar kecil */
+            min-width: 600px;
+            /* Supaya tabel tetap proper di layar kecil */
             background: #5d4037cc;
             border-radius: 10px;
             overflow: hidden;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #3e2723;
@@ -79,7 +83,9 @@
         }
 
         @media (max-width: 500px) {
-            th, td {
+
+            th,
+            td {
                 font-size: 14px;
                 padding: 10px 12px;
             }
@@ -90,4 +96,40 @@
             }
         }
     </style>
+@endsection
+
+
+@section('content')
+    <div class="container-delete">
+        <h1>Hapus Data Keluarga</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Keturunan</th>
+                    <th>Alamat</th>
+                    <th>HP</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($dataKeluarga as $item)
+                    <tr>
+                        <td data-label="Nama">{{ $item->nama }}</td>
+                        <td data-label="Keturunan">{{ $item->keturunan_ke }}</td>
+                        <td data-label="Alamat">{{ $item->alamat }}</td>
+                        <td data-label="HP">{{ $item->hp }}</td>
+                        <td data-label="Aksi">
+                            <form action="{{ route('keluarga.destroy', $item->id) }}" method="POST"
+                                onsubmit="return confirm('Yakin mau dihapus ?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection
