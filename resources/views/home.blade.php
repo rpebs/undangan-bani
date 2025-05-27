@@ -47,7 +47,7 @@
                 ukhuwah. Kehadiran Bapak/Ibu/Saudara(i) sangat kami harapkan.
             </p>
 
-            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Input Kehadiran</button>
+            <button id="input-kehadiran" aria-label="Tampilkan hitung mundur">Isi Daftar Hadir</button>
 
         </div>
 
