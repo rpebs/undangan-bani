@@ -105,6 +105,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Nama Orang Tua</th>
                     <th>Bani</th>
@@ -117,6 +118,7 @@
             <tbody>
                 @foreach ($dataKeluarga as $item)
                     <tr>
+                        <td data-label="No">{{ $loop->iteration }}</td>
                         <td data-label="Nama">{{ $item->nama }}</td>
                         <td data-label="Nama Orang Tua">{{ $item->nama_orang_tua }}</td>
                         <td data-label="Keturunan">{{ $item->bani }}</td>
