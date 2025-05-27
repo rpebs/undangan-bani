@@ -124,7 +124,7 @@
 
         <div id="modal-kehadiran" class="modal-overlay" style="display: none;">
             <div class="modal-content">
-                <h2>Form Kehadiran</h2>
+                <h2>Form Data Keluarga</h2>
                 <form id="form-kehadiran" action="{{ route('savekehadiran') }}" method="POST"
                     aria-label="Form input kehadiran">
                     @csrf
