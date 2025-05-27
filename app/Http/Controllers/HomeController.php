@@ -37,6 +37,19 @@ class HomeController extends Controller
     {
         $data = Person::all()->groupBy('bani');
         return view('keluarga', ['kelompokBani' => $data]);
+    }
 
+    public function indexForDelete()
+    {
+        $dataKeluarga = Person::all(); // Ambil semua data keluarga
+        return view('list', compact('dataKeluarga'));
+    }
+
+    public function destroy($id)
+    {
+        $keluarga = Person::findOrFail($id);
+        $keluarga->delete();
+
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }
