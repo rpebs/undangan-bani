@@ -110,6 +110,7 @@
                     <th>Bani</th>
                     <th>Alamat</th>
                     <th>HP</th>
+                    <th>Waktu Isi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -121,6 +122,7 @@
                         <td data-label="Keturunan">{{ $item->bani }}</td>
                         <td data-label="Alamat">{{ $item->alamat }}</td>
                         <td data-label="HP">{{ $item->hp }}</td>
+                        <td data-label="Waktu Isi">{{ $item->created_at->format('d M Y H:i') }}</td>
                         <td data-label="Aksi">
                             <form action="{{ route('keluarga.destroy', $item->id) }}" method="POST"
                                 onsubmit="return confirm('Yakin mau dihapus ?')">
