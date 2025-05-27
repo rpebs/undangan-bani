@@ -180,6 +180,23 @@
             const modal = document.getElementById('modal-kehadiran');
             const spinner = document.getElementById('loading-spinner');
 
+            if (modal) {
+                const observer = new MutationObserver(() => {
+                    if (modal.style.display === 'block' || modal.classList.contains('show')) {
+                        // Scroll ke modal
+                        modal.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                });
+
+                observer.observe(modal, {
+                    attributes: true,
+                    attributeFilter: ['style', 'class']
+                });
+            }
+
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
