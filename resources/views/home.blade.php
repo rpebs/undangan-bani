@@ -122,16 +122,18 @@
                     aria-label="Form input kehadiran">
                     @csrf
                     <input type="text" name="nama" placeholder="Nama Lengkap" required />
-                    {{-- <input type="number" name="keturunan_ke" placeholder="Keturunan ke-" required /> --}}
-                    <select required name="bani" id="bani-select">
+                    <input type="text" name="nama_orang_tua" placeholder="Nama Orang Tua" required />
+                    {{-- <select required name="bani" id="bani-select">
                         <option value="">Nama Orang Tua</option>
                         <option value="Sakirin">Sakirin</option>
                         <option value="Sama'un">Sama'un</option>
-                    </select>
-                    <select required name="turunan_bani" id="turunan-select">
+                    </select> --}}
+                    <select required name="bani" id="turunan-select">
                         <option value="">Pilih Bani</option>
                         <option value="Sarwati">Bani Sarwati</option>
                         <option value="Kasnadi">Bani Kasnadi</option>
+                        <option value="Umar">Bani Umar</option>
+                        <option value="Abdul Kari">Bani Abdul Kari</option>
                         <option value="Abdul Akhir">Bani Abdul Akhir</option>
                         <option value="Abdul Kadir">Bani Abdul Kadir</option>
                         <option value="Juwari">Bani Juwari</option>

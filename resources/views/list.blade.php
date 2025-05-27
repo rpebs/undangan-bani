@@ -106,7 +106,8 @@
             <thead>
                 <tr>
                     <th>Nama</th>
-                    <th>Keturunan</th>
+                    <th>Nama Orang Tua</th>
+                    <th>Bani</th>
                     <th>Alamat</th>
                     <th>HP</th>
                     <th>Aksi</th>
@@ -116,7 +117,8 @@
                 @foreach ($dataKeluarga as $item)
                     <tr>
                         <td data-label="Nama">{{ $item->nama }}</td>
-                        <td data-label="Keturunan">{{ $item->turunan_bani }}</td>
+                        <td data-label="Nama Orang Tua">{{ $item->nama_orang_tua }}</td>
+                        <td data-label="Keturunan">{{ $item->bani }}</td>
                         <td data-label="Alamat">{{ $item->alamat }}</td>
                         <td data-label="HP">{{ $item->hp }}</td>
                         <td data-label="Aksi">

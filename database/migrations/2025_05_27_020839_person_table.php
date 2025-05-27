@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('persons', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('keturunan_ke')->nullable()->default(0);
+            $table->string('nama_orang_tua')->nullable();
             $table->string('bani');
             $table->string('alamat');
             $table->string('hp');
