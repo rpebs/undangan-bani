@@ -101,7 +101,7 @@
 
 @section('content')
     <div class="container-delete">
-        <h1>Hapus Data Keluarga</h1>
+        <h1>List Data Keluarga</h1>
         <table>
             <thead>
                 <tr>
