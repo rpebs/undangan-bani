@@ -7,7 +7,8 @@ body {
     background: #3e2723;
     background-image: url("../image/bg.png");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     color: #f5f5dc;
     display: flex;
     justify-content: center;
