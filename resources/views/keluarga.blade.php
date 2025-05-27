@@ -79,7 +79,7 @@
                 <div class="card-grid">
                     @foreach ($anggota as $person)
                         <div class="card">
-                            <h3>{{ $person->nama }}</h3>
+                            <h3>{{ strtoupper($person->nama) }}</h3>
                             <p><strong>Nama Orang Tua:</strong> {{ $person->nama_orang_tua }}</p>
                             <p><strong>Alamat:</strong> {{ $person->alamat }}</p>
                             <p><strong>HP:</strong> {{ $person->hp }}</p>
