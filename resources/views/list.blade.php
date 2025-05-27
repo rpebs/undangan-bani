@@ -1,5 +1,3 @@
-@extends('layout.main')
-
 @section('customcss')
     <style>
         .container-delete {
@@ -8,8 +6,9 @@
             padding: 30px 40px;
             box-shadow: 0 0 30px #6d4c41;
             color: #fff8dc;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
+            overflow-x: auto;
         }
 
         h1 {
@@ -23,6 +22,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 600px; /* Supaya tabel tetap proper di layar kecil */
             background: #5d4037cc;
             border-radius: 10px;
             overflow: hidden;
@@ -38,6 +38,7 @@
             background-color: #6d4c41;
             color: #f0e68c;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         td {
@@ -59,73 +60,34 @@
             background-color: #c62828;
         }
 
-        @media (max-width: 600px) {
+        /* Responsive table wrapper */
+        @media (max-width: 768px) {
             .container-delete {
                 padding: 20px 15px;
             }
 
-            table, thead, tbody, th, td, tr {
+            table {
+                min-width: unset;
+            }
+
+            .container-delete table {
                 display: block;
-                width: 100%;
-            }
-
-            tr {
-                margin-bottom: 15px;
-            }
-
-            td {
-                text-align: right;
-                position: relative;
-                padding-left: 50%;
-            }
-
-            td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 15px;
-                width: 45%;
+                overflow-x: auto;
                 white-space: nowrap;
-                font-weight: bold;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @media (max-width: 500px) {
+            th, td {
+                font-size: 14px;
+                padding: 10px 12px;
             }
 
-            th {
-                display: none;
+            .btn-delete {
+                padding: 6px 10px;
+                font-size: 13px;
             }
         }
     </style>
-@endsection
-
-@section('content')
-    <div class="container-delete">
-        <h1>Hapus Data Keluarga</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Keturunan</th>
-                    <th>Alamat</th>
-                    <th>HP</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($dataKeluarga as $item)
-                    <tr>
-                        <td data-label="Nama">{{ $item->nama }}</td>
-                        <td data-label="Keturunan">{{ $item->keturunan_ke }}</td>
-                        <td data-label="Alamat">{{ $item->alamat }}</td>
-                        <td data-label="HP">{{ $item->hp }}</td>
-                        <td data-label="Aksi">
-                            <form action="{{ route('keluarga.destroy', $item->id) }}" method="POST"
-                                  onsubmit="return confirm('Yakin mau dihapus ?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn-delete">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
 @endsection
