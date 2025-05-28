@@ -6,6 +6,7 @@
     <meta name="description" content="Undangan Silaturahmi Keluarga Bani Sakirin & Sama'un" />
     <meta name="keywords" content="Undangan, Silaturahmi, Keluarga, Bani Sakirin, Sama'un" />
     <meta name="author" content="Ramadhany" />
+    <meta name="robots" content="noindex">
     <link rel="icon" href="{{ asset('favicon.ico') }}" />
     <title>Undangan Silaturahmi Keluarga Bani Sakirin & Sama'un</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
