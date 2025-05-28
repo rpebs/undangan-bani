@@ -14,6 +14,7 @@ class Person extends Model
         'alamat',
         'hp',
         'pekerjaan',
+        'is_menantu',
     ];
 
     // Tambahkan relasi atau metode lain jika diperlukan

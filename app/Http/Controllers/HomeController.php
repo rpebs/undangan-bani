@@ -22,6 +22,7 @@ class HomeController extends Controller
             'alamat' => 'required|string|max:255',
             'hp' => 'required|string',
             'pekerjaan' => 'required|string|max:255',
+            'is_menantu' => 'required', // Tambahkan validasi untuk is_menantu
         ]);
 
         // Ganti nilai 'bani' kalau user pilih "Lainnya"
