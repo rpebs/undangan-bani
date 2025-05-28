@@ -69,7 +69,8 @@ class HomeController extends Controller
 
     public function getNama()
     {
-        $data = Person::pluck('nama');
+
+        $data = Person::select('nama', 'nama_orang_tua')->get();
         return response()->json($data);
     }
 }

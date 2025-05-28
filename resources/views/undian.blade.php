@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Undian Nama</title>
@@ -12,14 +13,14 @@
         .nama-acak {
             font-size: 2rem;
             font-weight: bold;
-            padding: 20px;
-            color: #ffecb3;
-            background: rgba(93, 64, 55, 0.6);
-            border-radius: 15px;
-            margin-bottom: 30px;
-            min-height: 60px;
-            transition: all 0.3s ease;
-            /* animation: pulse 1.5s infinite; */
+            color: #fff8dc;
+            padding: 20px 30px;
+            background-color: #5d4037cc;
+            border-radius: 12px;
+            box-shadow: inset 0 0 10px #3e2723;
+            text-align: center;
+            min-width: 300px;
+            transition: all 0.3s ease-in-out;
         }
 
         .undian-button {
@@ -40,20 +41,18 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container fade-in undian-container">
-        <h1>🎁 Undian Doorprize 🎁</h1>
+        <h1>🎁 Undian Doorprize</h1>
         <div class="nama-acak" id="namaTampil"></div>
         <button class="undian-button" onclick="mulaiUndian()">Mulai</button>
         <button class="undian-button" onclick="stopUndian()">Stop</button>
     </div>
-
     <script>
         let namaList = [];
         let interval;
-        let currentIndex = 0;
 
-        // Ambil data dari server
         fetch("{{ url('/api/undian-nama') }}")
             .then(res => res.json())
             .then(data => namaList = data);
@@ -62,8 +61,12 @@
             if (!namaList.length) return;
             clearInterval(interval);
             interval = setInterval(() => {
-                currentIndex = Math.floor(Math.random() * namaList.length);
-                document.getElementById('namaTampil').textContent = namaList[currentIndex];
+                const current = namaList[Math.floor(Math.random() * namaList.length)];
+                const tampilNama = current.nama;
+                const tampilOrtu = current.nama_orang_tua ?
+                    `<br><span style="font-size: 1rem; font-style: italic;">(Anak dari ${current.nama_orang_tua})</span>` :
+                    '';
+                document.getElementById('namaTampil').innerHTML = tampilNama + tampilOrtu;
             }, 100);
         }
 
@@ -72,4 +75,5 @@
         }
     </script>
 </body>
+
 </html>
