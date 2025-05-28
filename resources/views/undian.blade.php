@@ -64,7 +64,7 @@
                 const current = namaList[Math.floor(Math.random() * namaList.length)];
                 const tampilNama = current.nama;
                 const tampilOrtu = current.nama_orang_tua ?
-                    `<br><span style="font-size: 1rem; font-style: italic;">(Anak dari ${current.nama_orang_tua})</span>` :
+                    `<br><span style="font-size: 1rem; font-style: italic;">(${current.is_menantu ? 'Menantu dari' : 'Anak dari'} ${current.nama_orang_tua})</span>` :
                     '';
                 document.getElementById('namaTampil').innerHTML = tampilNama + tampilOrtu;
             }, 100);

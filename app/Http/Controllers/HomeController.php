@@ -71,7 +71,7 @@ class HomeController extends Controller
     public function getNama()
     {
 
-        $data = Person::select('nama', 'nama_orang_tua')->get();
+        $data = Person::select('nama', 'nama_orang_tua', 'is_menantu')->get();
         return response()->json($data);
     }
 }
