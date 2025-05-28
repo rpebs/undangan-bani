@@ -41,4 +41,8 @@ Route::delete('/keluarga/{id}', function ($id) {
     return back()->with('success', 'Data berhasil dihapus');
 })->name('keluarga.destroy');
 
+Route::get('/undian', [HomeController::class, 'undian']);
+Route::get('/api/undian-nama', [HomeController::class, 'getNama']);
+
+
 

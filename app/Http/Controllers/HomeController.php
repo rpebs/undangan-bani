@@ -61,4 +61,15 @@ class HomeController extends Controller
 
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
+
+    public function undian()
+    {
+        return view('undian');
+    }
+
+    public function getNama()
+    {
+        $data = Person::pluck('nama');
+        return response()->json($data);
+    }
 }
